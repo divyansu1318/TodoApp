@@ -1,0 +1,76 @@
+.todo-container {
+    width: 100%;
+}
+
+.todo-container .header {
+    width: 100%;
+    text-align: center;
+}
+
+.todo-container .container {
+    text-align: center;
+}
+
+.todo-container .list {
+    text-align: center;
+    margin-top: 20px;
+    width: 30%;
+    margin: 0px auto;
+}
+
+input[type=text] {
+    padding: 5px;
+}
+
+.container button {
+    padding: 5px;
+    margin-left: 10px;
+    background-color: green;
+    color: #FFF;
+    border: green;
+    margin-bottom: 10px;
+}
+
+.todo-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.description {
+    margin-bottom: 5px;
+}
+
+.list .todo {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.form {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form input, .form textarea {
+    width: 40%;
+}
+
+.update-button {
+    background-color: blue;
+    color: #FFF;
+    border: blue;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.delete-button {
+    background-color: red;
+    border: red;
+}
+
+.image img {
+    width: 100px;
+}

@@ -1,0 +1,57 @@
+<div class="todo-container">
+    <div class="header">
+        <h2>Todo App</h2>
+    </div>
+
+    <div class="container">
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal">Add Todo</button>
+    </div>
+
+    <div class="list">
+        <input type="text" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="search()">
+        <div class="todo" *ngFor="let todo of todoList; let i = index">
+            <div class="image" *ngIf="todo.attachment">
+                <img src="../../assets/images/{{todo.attachment}}">
+            </div>
+            <div class="todo-title">
+                <span>{{ todo.title }}</span>
+            </div>
+            <div class="description">
+                <span>Description: {{ todo.description }}</span>
+            </div>
+            <div class="description">
+                <span>Due Date: {{ todo.dueDate | date: 'dd-MM-yyyy' }}</span>
+            </div>
+
+            <button class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateTodo(todo)">Update</button>
+           
+            <button (click)="deleteTodo(i)" class="update-button delete-button">Delete</button>
+        </div>
+    </div>
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> {{ isUpdate ? 'Update ' : 'Add ' }} Todo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form">
+                <input type="text" placeholder="Title" [(ngModel)]="todo.title">
+                <input type="date" [min]="todayDate" [(ngModel)]="todo.dueDate">
+            </div>
+            <div class="form">
+                <textarea placeholder="Description" [(ngModel)]="todo.description"></textarea>
+                <input type="file" placeholder="Attachment" [(ngModel)]="todo.attachment" (change)="readURL($event);">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm()">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="isUpdate ? saveTodo() : addTodo()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
